@@ -1,0 +1,250 @@
+{
+  "diseases": {
+    "Tomato___Early_blight": {
+      "name": "Tomato Early Blight",
+      "marathi_name": "टोमॅटोचा करपा",
+      "hindi_name": "टमाटर का अगेती झुलसा",
+      "crop": "Tomato",
+      "pathogen": "Alternaria solani",
+      "spread_factors": "Warm temperatures (24-29°C) accompanied by heavy dews or frequent rains.",
+      "severity_rules": {
+        "early": "Infection limited to bottom 2-3 leaves; no fruit involvement.",
+        "moderate": "Progressing to mid-canopy; lesions expanding with chlorotic halos.",
+        "severe": "Upper canopy infected; stem cankers and fruit lesions visible."
+      },
+      "treatments": {
+        "organic": [
+          "Spray Neem Oil (5ml/L of water) with emulsifier every 7 days as a prophylactic.",
+          "Apply bio-fungicide Trichoderma viride or Pseudomonas fluorescens (5g/L water) in soil & foliage.",
+          "Spray Cow Urine (Gomutra 10%) fermented with Dashparni Ark to enhance systemic immunity."
+        ],
+        "chemical": [
+          "Spray Mancozeb 75% WP @ 2.5 g/L or Chlorothalonil 75% WP @ 2 g/L at first appearance.",
+          "For moderate-to-severe infection, spray Azoxystrobin 18.2% + Difenoconazole 11.4% SC (Amistar Top) @ 1 ml/L.",
+          "Alternatively use Tebuconazole 25.9% EC @ 1.5 ml/L water with sticker."
+        ],
+        "cultural": [
+          "Remove and safely burn lower infected leaves (pruning bottom 12 inches).",
+          "Ensure drip irrigation to prevent water splashing spores onto lower leaves.",
+          "Practice 3-year crop rotation avoiding Solanaceae family plants."
+        ]
+      }
+    },
+    "Tomato___Late_blight": {
+      "name": "Tomato Late Blight",
+      "marathi_name": "टोमॅटो उशिराचा करपा (तांबेरा)",
+      "hindi_name": "टमाटर पछेती झुलसा",
+      "crop": "Tomato",
+      "pathogen": "Phytophthora infestans",
+      "spread_factors": "Cool, humid weather (15-22°C with relative humidity >85% for consecutive days).",
+      "severity_rules": {
+        "early": "Water-soaked dark green/black patches on leaf margins.",
+        "moderate": "White fluffy downy mildew sporulation underneath; spreading to stems.",
+        "severe": "Foliage collapses completely into black slime; green fruits turn dark greasy brown."
+      },
+      "treatments": {
+        "organic": [
+          "Spray Copper Oxychloride 50% WP (Blitox) @ 3 g/L as certified preventive barrier.",
+          "Foliar spray of Potassium Phosphite / Bio-protectants containing Bacillus subtilis.",
+          "Ensure good aeration and sunlight penetration through row spacing."
+        ],
+        "chemical": [
+          "Systemic: Cymoxanil 8% + Mancozeb 64% WP (Curzate) @ 2.5 g/L water.",
+          "Metalaxyl-M 4% + Mancozeb 64% WP (Ridomil Gold) @ 2.5 g/L at early outbreak.",
+          "Dimethomorph 50% WP @ 1 g/L mixed with Mancozeb @ 2 g/L for rapid knock-down."
+        ],
+        "cultural": [
+          "Immediately pull out and bury severely blighted plants outside the field.",
+          "Avoid sprinkler/overhead irrigation entirely during cool foggy mornings."
+        ]
+      }
+    },
+    "Potato___Early_blight": {
+      "name": "Potato Early Blight",
+      "marathi_name": "बटाटा अगेती करपा",
+      "hindi_name": "आलू का अगेती झुलसा",
+      "crop": "Potato",
+      "pathogen": "Alternaria solani",
+      "spread_factors": "Alternating dry and wet periods; temperature 25°C.",
+      "severity_rules": {
+        "early": "Target spot concentric rings on oldest bottom leaves.",
+        "moderate": "Leaf tissue around spots turns necrotic and curls upward.",
+        "severe": "Premature defoliation; tuber size heavily compromised."
+      },
+      "treatments": {
+        "organic": [
+          "Neem seed kernel extract (NSKE 5%) foliar spray.",
+          "Trichoderma harzianum tuber treatment before planting + foliar spray."
+        ],
+        "chemical": [
+          "Mancozeb 75% WP @ 2.5 g/L or Propineb 70% WP (Antracol) @ 2.5 g/L.",
+          "Pyraclostrobin 20% WG (Cabrio Top) @ 1.5 g/L for severe infection."
+        ],
+        "cultural": [
+          "Maintain balanced nitrogen fertilization (excess nitrogen prolongs susceptibility)."
+        ]
+      }
+    },
+    "Potato___Late_blight": {
+      "name": "Potato Late Blight",
+      "marathi_name": "बटाटा पछेती करपा",
+      "hindi_name": "आलू का पछेती झुलसा",
+      "crop": "Potato",
+      "pathogen": "Phytophthora infestans",
+      "spread_factors": "Cloudy, rainy weather with temperatures 10-21°C and RH >90%.",
+      "severity_rules": {
+        "early": "Dark water-soaked lesions expanding rapidly on leaf margins.",
+        "moderate": "Stem rot visible; white powdery sporulation in morning dew.",
+        "severe": "Complete canopy destruction within 7-10 days."
+      },
+      "treatments": {
+        "organic": [
+          "Bordeaux mixture 1% spray as preventive barrier in prone areas."
+        ],
+        "chemical": [
+          "Mandipropamid 23.4% SC (Revus) @ 0.8 ml/L.",
+          "Fenamidone 10% + Mancozeb 50% WG (Sectin) @ 2.5 g/L."
+        ],
+        "cultural": [
+          "De-haulm (cut and destroy tops) 10-15 days prior to harvest to safeguard tubers."
+        ]
+      }
+    },
+    "Cotton___Bacterial_blight": {
+      "name": "Cotton Bacterial Blight (Black Arm)",
+      "marathi_name": "कापसावरील काळा हात / जिवाणू करपा",
+      "hindi_name": "कपास का जीवाणु झुलसा",
+      "crop": "Cotton",
+      "pathogen": "Xanthomonas citri pv. malvacearum",
+      "spread_factors": "Wind-driven rains and warm humid days during boll development.",
+      "severity_rules": {
+        "early": "Angular water-soaked leaf spots between small veins.",
+        "moderate": "Veinal necrosis spreading down petiole causing leaf shedding.",
+        "severe": "Black girdling lesions on main stems and branches (Black Arm phase)."
+      },
+      "treatments": {
+        "organic": [
+          "Seed treatment with Pseudomonas fluorescens @ 10g/kg seed.",
+          "Copper hydroxide spray @ 2 g/L."
+        ],
+        "chemical": [
+          "Streptocycline (Streptomycin sulphate + Tetracycline) @ 100 mg/L (1g in 10L water) mixed with Copper Oxychloride 50% WP @ 2.5 g/L.",
+          "Repeat spray at 12-day interval if rains persist."
+        ],
+        "cultural": [
+          "Acid delinting of cotton seed before sowing.",
+          "Burn crop residues after final harvest."
+        ]
+      }
+    },
+    "Cotton___Bollworm_damage": {
+      "name": "Cotton Pink / American Bollworm Damage",
+      "marathi_name": "कापसावरील बोंडअळी",
+      "hindi_name": "कपास की गुलाबी / अमेरिकन सूंडी",
+      "crop": "Cotton",
+      "pathogen": "Helicoverpa armigera / Pectinophora gossypiella",
+      "spread_factors": "Continuous cropping, overlapping generations, favorable night humidity.",
+      "severity_rules": {
+        "early": "Flared squares (rosetted flowers), small entry holes in young squares.",
+        "moderate": "Larvae feeding internally on immature bolls with exterior excreta.",
+        "severe": "Internal lint blackened; damaged bolls rot or open prematurely."
+      },
+      "treatments": {
+        "organic": [
+          "Install Pheromone traps @ 8 per acre for monitoring (ETL: 8 moths/trap/night for 3 days).",
+          "Release Trichogramma bactrae egg parasitoids @ 60,000/acre at weekly intervals.",
+          "Spray Neem seed kernel extract (NSKE 5%) or Azadirachtin 1500 ppm @ 3 ml/L."
+        ],
+        "chemical": [
+          "At initial ETL: Emamectin Benzoate 5% SG @ 0.5 g/L water.",
+          "At mid boll stage: Chlorantraniliprole 18.5% SC (Coragen) @ 0.3 ml/L water.",
+          "For severe pink bollworm: Spinetoram 11.7% SC @ 1 ml/L or Flubendiamide 39.35% SC @ 0.5 ml/L."
+        ],
+        "cultural": [
+          "Manual destruction of rosetted flowers in first flush.",
+          "Avoid extending the cotton crop beyond January to break pest lifecycle."
+        ]
+      }
+    },
+    "Sugarcane___Red_rot": {
+      "name": "Sugarcane Red Rot",
+      "marathi_name": "उसावरील तांबडे कूज (रेड रॉट)",
+      "hindi_name": "गन्ने का लाल सड़न",
+      "crop": "Sugarcane",
+      "pathogen": "Colletotrichum falcatum",
+      "spread_factors": "Infected setts, standing waterlogging, high humidity (80-90%).",
+      "severity_rules": {
+        "early": "Upper leaves show discoloration; red lesion streaks on midrib.",
+        "moderate": "Stalk loses lustre, shrinks longitudinally; nodal darkening.",
+        "severe": "Pith turns blood red with horizontal white patches; alcohol odor."
+      },
+      "treatments": {
+        "organic": [
+          "Trichoderma viride sett treatment (10 g/L) for 30 minutes before planting.",
+          "Soil application of enriched Trichoderma compost @ 2.5 kg/acre."
+        ],
+        "chemical": [
+          "Sett treatment with Carbendazim 50% WP @ 1 g/L or Thiophanate Methyl 70% WP @ 1.5 g/L.",
+          "Foliar drenching of base with Carbendazim + Mancozeb (Saaf) @ 2 g/L."
+        ],
+        "cultural": [
+          "Use certified disease-free tissue culture seed setts (e.g. resistant varieties like Co 86032 / CoM 0265).",
+          "Immediately rogue out and incinerate infected clumps with root system.",
+          "Ensure efficient field drainage to eliminate stagnant water pockets."
+        ]
+      }
+    },
+    "Soybean___Leaf_blight": {
+      "name": "Soybean Cercospora Leaf Blight & Rust",
+      "marathi_name": "सोयाबीन तांबेरा व करपा",
+      "hindi_name": "सोयाबीन का पत्ता झुलसा व गेरुआ",
+      "crop": "Soybean",
+      "pathogen": "Cercospora kikuchii / Phakopsora pachyrhizi",
+      "spread_factors": "Continuous rains with mild temperatures during flowering/pod fill.",
+      "severity_rules": {
+        "early": "Minute reddish brown flecks on lower foliage.",
+        "moderate": "Leathery bronze canopy appearance with pustules on underside.",
+        "severe": "Premature leaf drop causing stunted pods and shriveled grains."
+      },
+      "treatments": {
+        "organic": [
+          "Spray Bio-fungicide Trichoderma harzianum @ 5g/L water at initiation.",
+          "Neem Oil 10,000 ppm @ 2 ml/L as repellent."
+        ],
+        "chemical": [
+          "Tebuconazole 25.9% EC @ 1.25 ml/L or Propiconazole 25% EC @ 1 ml/L.",
+          "Pyraclostrobin 13.3% + Epoxiconazole 5% SE (Opera) @ 1.5 ml/L."
+        ],
+        "cultural": [
+          "Avoid high plant density; maintain 45cm row spacing for air circulation."
+        ]
+      }
+    },
+    "Pepper_bell___Bacterial_spot": {
+      "name": "Chilli / Bell Pepper Bacterial Spot",
+      "marathi_name": "मिरचीवरील जिवाणू ठिपके",
+      "hindi_name": "मिर्च का जीवाणु धब्बा",
+      "crop": "Chilli / Pepper",
+      "pathogen": "Xanthomonas vesicatoria",
+      "spread_factors": "High humidity >80% and warm temperatures (24-30°C).",
+      "severity_rules": {
+        "early": "Yellow-green lesions on upper leaf surface.",
+        "moderate": "Spots coalesce with dark water-soaked centers; fruit spotting.",
+        "severe": "Extensive defoliation exposing peppers to solar damage."
+      },
+      "treatments": {
+        "organic": [
+          "Copper Hydroxide @ 2 g/L preventive spray.",
+          "Bacillus subtilis foliar application."
+        ],
+        "chemical": [
+          "Streptocycline @ 1g in 10L water + Copper Oxychloride @ 25g in 10L water.",
+          "Kasugamycin 3% SL @ 2 ml/L."
+        ],
+        "cultural": [
+          "Use hot water treated seeds (50°C for 25 minutes) before nursery raising."
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "sih-2026-smart-krishi-platform",
+  "version": "1.0.0",
+  "description": "Smart India Hackathon 2026 - AI Crop Disease Detection & APMC Procurement Hub",
+  "scripts": {
+    "start:backend": "cd backend && node src/server.js",
+    "start:frontend": "cd frontend && npm run dev",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "keywords": ["sih2026", "crop-disease-detection", "agriculture", "tflite", "procurement", "maharashtra"]
+}

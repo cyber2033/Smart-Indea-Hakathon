@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+*/node_modules/
+.venv/
+venv/
+env/
+
+# Datasets (Large files)
+PlantVillage/
+*.zip
+*.tar.gz
+
+# Environment & Secrets
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build
+dist/
+build/
+.vite/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

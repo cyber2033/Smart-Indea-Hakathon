@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-agri: #2D6A4F;
+  --accent-gold: #F4A261;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #F4F7F5;
+  color: #1A2E26;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Glassmorphic Cards */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(220, 235, 226, 0.7);
+}
+
+.glass-dark {
+  background: rgba(27, 67, 50, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+}
+
+/* Custom Scan Animation Line */
+.scanner-laser {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #52B788, #74C69D, transparent);
+  box-shadow: 0 0 15px #52B788, 0 0 25px #74C69D;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #E8F5EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #74C69D;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #40916C;
+}

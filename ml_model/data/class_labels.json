@@ -1,0 +1,232 @@
+{
+  "classes": [
+    {
+      "index": 0,
+      "key": "Tomato___Early_blight",
+      "crop": "Tomato",
+      "crop_mr": "टोमॅटो",
+      "crop_hi": "टमाटर",
+      "crop_ml": "തക്കാളി",
+      "name_en": "Tomato Early Blight",
+      "name_mr": "टोमॅटोचा करपा (अल्टरनेरिया)",
+      "name_hi": "टमाटर का अगेती झुलसा",
+      "name_ml": "തക്കാളി ഇലക്കരിച്ചിൽ (ഏർളി ബ്ലൈറ്റ്)",
+      "pathogen": "Fungus (Alternaria solani)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Small brown/black concentric spots (<10% foliage affected)",
+        "moderate": "Target-like spots expanding, lower leaves yellowing (10-35%)",
+        "severe": "Extensive defoliation, stem lesions, fruit sunscald (>35%)"
+      }
+    },
+    {
+      "index": 1,
+      "key": "Tomato___Late_blight",
+      "crop": "Tomato",
+      "crop_mr": "टोमॅटोचा तांबेरा / उशिरा येणारा करपा",
+      "crop_hi": "टमाटर का पछेती झुलसा",
+      "crop_ml": "തക്കാളി",
+      "name_en": "Tomato Late Blight",
+      "name_mr": "टोमॅटो उशिराचा करपा",
+      "name_hi": "टमाटर पछेती झुलसा",
+      "name_ml": "തക്കാളി ലേറ്റ് ബ്ലൈറ്റ് (കരിച്ചിൽ)",
+      "pathogen": "Oomycete (Phytophthora infestans)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Water-soaked dark lesions on leaf tips during high humidity",
+        "moderate": "White fuzzy fungal growth under leaves, rapid spread",
+        "severe": "Complete foliage collapse, greasy brown rot on green fruits"
+      }
+    },
+    {
+      "index": 2,
+      "key": "Tomato___healthy",
+      "crop": "Tomato",
+      "crop_mr": "टोमॅटो",
+      "crop_hi": "टमाटर",
+      "crop_ml": "തക്കാളി",
+      "name_en": "Tomato Healthy Leaf",
+      "name_mr": "टोमॅटो निरोगी पान",
+      "name_hi": "टमाटर स्वस्थ पत्ता",
+      "name_ml": "തക്കാളി ആരോഗ്യമുള്ള ഇല",
+      "pathogen": "None",
+      "type": "healthy",
+      "severity_levels": {
+        "early": "Healthy",
+        "moderate": "Healthy",
+        "severe": "Healthy"
+      }
+    },
+    {
+      "index": 3,
+      "key": "Potato___Early_blight",
+      "crop": "Potato",
+      "crop_mr": "बटाटा",
+      "crop_hi": "आलू",
+      "crop_ml": "ഉരുളക്കിഴങ്ങ്",
+      "name_en": "Potato Early Blight",
+      "name_mr": "बटाटा अगेती करपा",
+      "name_hi": "आलू का अगेती झुलसा",
+      "name_ml": "ഉരുളക്കിഴങ്ങ് ഏർളി ബ്ലൈറ്റ്",
+      "pathogen": "Fungus (Alternaria solani)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Few circular concentric rings on mature lower leaves",
+        "moderate": "Leaves turning chlorotic, lesions merging into irregular shapes",
+        "severe": "Severe foliage blight, premature vine dying, tuber yield loss"
+      }
+    },
+    {
+      "index": 4,
+      "key": "Potato___Late_blight",
+      "crop": "Potato",
+      "crop_mr": "बटाटा",
+      "crop_hi": "आलू",
+      "crop_ml": "ഉരുളക്കിഴങ്ങ്",
+      "name_en": "Potato Late Blight",
+      "name_mr": "बटाटा उशिराचा करपा",
+      "name_hi": "आलू का पछेती झुलसा",
+      "name_ml": "ഉരുളക്കിഴങ്ങ് ലേറ്റ് ബ്ലൈറ്റ്",
+      "pathogen": "Oomycete (Phytophthora infestans)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Pale water-soaked leaf spots turning dark brown",
+        "moderate": "White mold on leaf underside under cool humid conditions",
+        "severe": "Entire plant collapses within days, tuber rot in soil"
+      }
+    },
+    {
+      "index": 5,
+      "key": "Potato___healthy",
+      "crop": "Potato",
+      "crop_mr": "बटाटा",
+      "crop_hi": "आलू",
+      "crop_ml": "ഉരുളക്കിഴങ്ങ്",
+      "name_en": "Potato Healthy Leaf",
+      "name_mr": "बटाटा निरोगी पान",
+      "name_hi": "आलू स्वस्थ पत्ता",
+      "name_ml": "ഉരുളക്കിഴങ്ങ് ആരോഗ്യമുള്ള ഇല",
+      "pathogen": "None",
+      "type": "healthy",
+      "severity_levels": {
+        "early": "Healthy",
+        "moderate": "Healthy",
+        "severe": "Healthy"
+      }
+    },
+    {
+      "index": 6,
+      "key": "Cotton___Bacterial_blight",
+      "crop": "Cotton",
+      "crop_mr": "कापूस",
+      "crop_hi": "कपास",
+      "crop_ml": "പരുത്തി",
+      "name_en": "Cotton Bacterial Blight (Black Arm)",
+      "name_mr": "कापसावरील काळा हात / करपा",
+      "name_hi": "कपास का जीवाणु झुलसा (ब्लैक आर्म)",
+      "name_ml": "പരുത്തി ബാക്ടീരിയൽ ബ്ലൈറ്റ് (ബ്ലാക്ക് ആം)",
+      "pathogen": "Bacteria (Xanthomonas citri pv. malvacearum)",
+      "type": "bacterial",
+      "severity_levels": {
+        "early": "Angular water-soaked leaf spots bounded by veins",
+        "moderate": "Lesions turning reddish-brown, spreading along petiole to stem",
+        "severe": "Blackening of branches (black arm), square and boll drop"
+      }
+    },
+    {
+      "index": 7,
+      "key": "Cotton___Bollworm_damage",
+      "crop": "Cotton",
+      "crop_mr": "कापूस",
+      "crop_hi": "कपास",
+      "crop_ml": "പരുത്തി",
+      "name_en": "Cotton Pink / American Bollworm Damage",
+      "name_mr": "कापसावरील गुलाबी बोंडअळी नुकसान",
+      "name_hi": "कपास की गुलाबी सूंडी प्रकोप",
+      "name_ml": "പരുത്തി പിങ്ക് കായ്തുരപ്പൻ പുഴു ബാധ",
+      "pathogen": "Pest (Pectinophora gossypiella / Helicoverpa armigera)",
+      "type": "pest",
+      "severity_levels": {
+        "early": "Rosetted flower appearance, tiny entry pinholes in tender bolls",
+        "moderate": "Boreholes with frass/excreta outside developing green bolls",
+        "severe": "Premature boll opening with stained locules, rotten fiber"
+      }
+    },
+    {
+      "index": 8,
+      "key": "Cotton___healthy",
+      "crop": "Cotton",
+      "crop_mr": "कापूस",
+      "crop_hi": "कपास",
+      "crop_ml": "പരുത്തി",
+      "name_en": "Cotton Healthy Leaf & Boll",
+      "name_mr": "कापूस निरोगी पीक",
+      "name_hi": "कपास स्वस्थ फसल",
+      "name_ml": "പരുത്തി ആരോഗ്യമുള്ള വിള",
+      "pathogen": "None",
+      "type": "healthy",
+      "severity_levels": {
+        "early": "Healthy",
+        "moderate": "Healthy",
+        "severe": "Healthy"
+      }
+    },
+    {
+      "index": 9,
+      "key": "Sugarcane___Red_rot",
+      "crop": "Sugarcane",
+      "crop_mr": "ऊस",
+      "crop_hi": "गन्ना",
+      "crop_ml": "കരിമ്പ്",
+      "name_en": "Sugarcane Red Rot",
+      "name_mr": "उसावरील तांबडे कूज रोग (रेड रॉट)",
+      "name_hi": "गन्ने का लाल सड़न रोग (रेड रॉट)",
+      "name_ml": "കരിമ്പ് ചുവപ്പ് ചീയൽ (റെഡ് റോട്ട്)",
+      "pathogen": "Fungus (Colletotrichum falcatum)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Yellowing and drying of 3rd or 4th leaf from top with red midrib lesions",
+        "moderate": "Canes showing longitudinal shrinkage with sour alcohol smell",
+        "severe": "Internal pith turns bright red with characteristic white transverse bands"
+      }
+    },
+    {
+      "index": 10,
+      "key": "Soybean___Leaf_blight",
+      "crop": "Soybean",
+      "crop_mr": "सोयाबीन",
+      "crop_hi": "सोयाबीन",
+      "crop_ml": "സോയാബീൻ",
+      "name_en": "Soybean Cercospora Leaf Blight / Rust",
+      "name_mr": "सोयाबीन तांबेरा आणि करपा",
+      "name_hi": "सोयाबीन का पत्ता झुलसा व गेरुआ",
+      "name_ml": "സോയാബീൻ ഇലക്കരിച്ചിൽ",
+      "pathogen": "Fungus (Cercospora kikuchii / Phakopsora pachyrhizi)",
+      "type": "fungal",
+      "severity_levels": {
+        "early": "Reddish-purple discoloration on sun-exposed upper leaf surfaces",
+        "moderate": "Leaves becoming leathery and bronze, premature chlorosis",
+        "severe": "Severe early defoliation causing reduced pod filling and seed shriveling"
+      }
+    },
+    {
+      "index": 11,
+      "key": "Pepper_bell___Bacterial_spot",
+      "crop": "Chilli / Bell Pepper",
+      "crop_mr": "मिरची / ढोबळी",
+      "crop_hi": "मिर्च / शिमला मिर्च",
+      "crop_ml": "മുളക് / കാപ്സിക്കം",
+      "name_en": "Chilli / Bell Pepper Bacterial Spot",
+      "name_mr": "मिरचीवरील जिवाणू ठिपके रोग",
+      "name_hi": "मिर्च का जीवाणु धब्बा रोग",
+      "name_ml": "മുളക് ബാക്ടീരിയൽ പുള്ളി രോഗം",
+      "pathogen": "Bacteria (Xanthomonas vesicatoria)",
+      "type": "bacterial",
+      "severity_levels": {
+        "early": "Small yellow-green circular spots with greasy appearance",
+        "moderate": "Spots become scab-like with raised blister centers",
+        "severe": "Extensive leaf dropping and blistered cracked fruits"
+      }
+    }
+  ]
+}
