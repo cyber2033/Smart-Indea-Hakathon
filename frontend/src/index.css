@@ -36,14 +36,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Custom Scan Animation Line */
+@keyframes scanBeam {
+  0% {
+    top: 2%;
+    opacity: 0.85;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.85;
+  }
+}
+
 .scanner-laser {
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #52B788, #74C69D, transparent);
-  box-shadow: 0 0 15px #52B788, 0 0 25px #74C69D;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #22c55e, #10b981, #06b6d4, transparent);
+  box-shadow: 0 0 18px #22c55e, 0 0 32px #10b981;
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 20;
+  z-index: 30;
+}
+
+.animate-scan-beam {
+  animation: scanBeam 1.6s ease-in-out infinite;
 }
 
 /* Custom Scrollbars */

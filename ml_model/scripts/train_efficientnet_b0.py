@@ -7,11 +7,20 @@ Training Strategy: Two-Phase Transfer Learning & Fine-Tuning -> TFLite Export
 """
 
 import os
+import sys
 import tensorflow as tf
 from tensorflow.keras import layers, Model
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint, ReduceLROnPlateau
+
+# Ensure standard output supports UTF-8 on Windows
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 def build_crop_disease_model(num_classes=15, input_shape=(224, 224, 3)):
     """
@@ -53,13 +62,13 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
     # STEP 1: Build Model Architecture
     # -------------------------------------------------------------------------
     print("=" * 70)
-    print("🌾 STEP 1: Building EfficientNetB0 with Custom Classification Head")
+    print("[*] STEP 1: Building EfficientNetB0 with Custom Classification Head")
     print("=" * 70)
     model, base_model = build_crop_disease_model(num_classes=num_classes)
     model.summary()
 
     # -------------------------------------------------------------------------
-    # STEP 2: Phase 1 — Feature Extraction (Epochs 1-10)
+    # STEP 2: Phase 1 -- Feature Extraction (Epochs 1-10)
     # -------------------------------------------------------------------------
     # - Base model frozen
     # - Optimizer: Adam, learning_rate = 0.0001 (1e-4)
@@ -68,7 +77,7 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
     # - Epochs: 10
     # -------------------------------------------------------------------------
     print("\n" + "=" * 70)
-    print("🚀 PHASE 1: Feature Extraction (Epochs 1-10) | Base FROZEN | LR = 0.0001")
+    print("[*] PHASE 1: Feature Extraction (Epochs 1-10) | Base FROZEN | LR = 0.0001")
     print("=" * 70)
     
     phase1_optimizer = Adam(learning_rate=0.0001)
@@ -93,17 +102,17 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
     )
     
     p1_val_acc = history_phase1.history['val_accuracy'][-1] * 100
-    print(f"[✓] Phase 1 Completed! Validation Accuracy: {p1_val_acc:.2f}%")
+    print(f"[+] Phase 1 Completed! Validation Accuracy: {p1_val_acc:.2f}%")
 
     # -------------------------------------------------------------------------
-    # STEP 3: Phase 2 — Fine-Tuning (15 More Epochs, Total 25)
+    # STEP 3: Phase 2 -- Fine-Tuning (15 More Epochs, Total 25)
     # -------------------------------------------------------------------------
     # - Unfreeze last 30% of EfficientNetB0 layers (keep first 70% frozen)
     # - Re-compile with lower learning rate: 0.00001 (1e-5)
     # - Continue training for 15 more epochs
     # -------------------------------------------------------------------------
     print("\n" + "=" * 70)
-    print("🚀 PHASE 2: Fine-Tuning (15 More Epochs) | Unfreeze Last 30% | LR = 0.00001")
+    print("[*] PHASE 2: Fine-Tuning (15 More Epochs) | Unfreeze Last 30% | LR = 0.00001")
     print("=" * 70)
     
     base_model.trainable = True
@@ -145,18 +154,18 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
     )
     
     final_val_acc = history_phase2.history['val_accuracy'][-1] * 100
-    print(f"\n[✓] Phase 2 Fine-Tuning Completed! Final Val Accuracy: {final_val_acc:.2f}%")
+    print(f"\n[+] Phase 2 Fine-Tuning Completed! Final Val Accuracy: {final_val_acc:.2f}%")
 
     # -------------------------------------------------------------------------
     # STEP 4: Evaluation on Test Data
     # -------------------------------------------------------------------------
     if test_data is not None:
         print("\n" + "=" * 70)
-        print("📊 STEP 4: Evaluating on Held-Out Test Data")
+        print("[*] STEP 4: Evaluating on Held-Out Test Data")
         print("=" * 70)
         test_loss, test_accuracy = model.evaluate(test_data)
-        print(f"\n[✓] >>> Final Test Accuracy: {test_accuracy * 100:.2f}% <<<")
-        print(f"[✓] Final Test Loss: {test_loss:.4f}")
+        print(f"\n[+] >>> Final Test Accuracy: {test_accuracy * 100:.2f}% <<<")
+        print(f"[+] Final Test Loss: {test_loss:.4f}")
 
     # -------------------------------------------------------------------------
     # STEP 5: Save Trained Keras Model (.h5)
@@ -164,13 +173,13 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
     h5_filename = 'crop_disease_model.h5'
     model.save(h5_filename)
     h5_size_mb = os.path.getsize(h5_filename) / (1024 * 1024)
-    print(f"\n[✓] Keras model saved successfully: '{h5_filename}' ({h5_size_mb:.2f} MB)")
+    print(f"\n[+] Keras model saved successfully: '{h5_filename}' ({h5_size_mb:.2f} MB)")
 
     # -------------------------------------------------------------------------
     # STEP 6: Convert to TensorFlow Lite (.tflite) for Offline Edge Inference
     # -------------------------------------------------------------------------
     print("\n" + "=" * 70)
-    print("📱 STEP 6: Converting Model to TensorFlow Lite (.tflite)")
+    print("[*] STEP 6: Converting Model to TensorFlow Lite (.tflite)")
     print("=" * 70)
     
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
@@ -183,10 +192,13 @@ def train_pipeline(train_data, val_data, test_data=None, num_classes=15):
         f.write(tflite_model)
         
     tflite_size_mb = os.path.getsize(tflite_filename) / (1024 * 1024)
-    print(f"[✓] TFLite model exported successfully: '{tflite_filename}' ({tflite_size_mb:.2f} MB)")
-    print("[✓] Ready for offline mobile inference (zero-latency, WiFi-off field deployment)!")
+    print(f"[+] TFLite model exported successfully: '{tflite_filename}' ({tflite_size_mb:.2f} MB)")
+    print("[+] Ready for offline mobile inference (zero-latency, WiFi-off field deployment)!")
 
     return model, history_phase1, history_phase2
+
+# Alias for compatibility with runner scripts
+train_crop_disease_pipeline = train_pipeline
 
 
 # =============================================================================

@@ -26,6 +26,11 @@ dist/
 build/
 .vite/
 
+# Large Model Checkpoints & Uploads
+*.h5
+backend/uploads/*
+!backend/uploads/.gitkeep
+
 # IDE & OS
 .vscode/
 .idea/

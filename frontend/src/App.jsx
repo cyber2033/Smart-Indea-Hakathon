@@ -18,10 +18,9 @@ function MainApp() {
   const [scanResult, setScanResult] = useState(null);
 
   // Scan handler
-  const handleScanComplete = async (formData, sampleKey) => {
-    const response = await apiService.analyzeScan(formData, isOffline, sampleKey);
-    if (response.success && response.data) {
-      setScanResult(response.data);
+  const handleScanComplete = (diagnosisData) => {
+    if (diagnosisData) {
+      setScanResult(diagnosisData);
     }
   };
 
@@ -63,6 +62,7 @@ function MainApp() {
               <ScanCamera
                 onScanComplete={handleScanComplete}
                 isOffline={isOffline}
+                onNavigateToWeather={() => setActiveTab('weather')}
               />
             ) : (
               <ScanResult
@@ -117,8 +117,8 @@ function MainApp() {
             <span>•</span>
             <span className="text-agri-700">{t('sihTag')}</span>
           </div>
-          <div>
-            Built with ❤️ for Indian Farmers • Govt of Maharashtra (SIH26131 + SIH26032)
+          <div className="text-gray-500 font-medium">
+            Smart Krishi AI • Empowering Farmers with Intelligent Agriculture
           </div>
         </div>
       </footer>

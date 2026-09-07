@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { apiService } from '../services/api';
 import { speechService } from '../services/speechService';
-import { CloudSun, Droplets, Thermometer, Wind, AlertCircle, ShieldAlert, Volume2, Calendar, MapPin, RefreshCw } from 'lucide-react';
+import { CloudSun, Droplets, Thermometer, Wind, AlertCircle, ShieldAlert, Volume2, Calendar, MapPin, RefreshCw, Navigation, Radio } from 'lucide-react';
 
 export default function WeatherAlerts() {
   const { language, t } = useLanguage();
@@ -10,11 +10,20 @@ export default function WeatherAlerts() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isGpsActive, setIsGpsActive] = useState(false);
 
-  const fetchWeather = async (targetDistrict) => {
+  const fetchWeather = async (targetDistrict, coords = null) => {
     setLoading(true);
     try {
-      const data = await apiService.getWeatherAndRisk(targetDistrict);
+      let params = targetDistrict;
+      if (coords) {
+        params = {
+          lat: coords.lat,
+          lon: coords.lon,
+          locationName: coords.name || 'Current Farm Location (वर्तमान स्थान)'
+        };
+      }
+      const data = await apiService.getWeatherAndRisk(params);
       setWeatherData(data);
     } catch (err) {
       console.error('Weather load error:', err);
@@ -24,8 +33,34 @@ export default function WeatherAlerts() {
   };
 
   useEffect(() => {
-    fetchWeather(district);
+    if (!isGpsActive) {
+      fetchWeather(district);
+    }
   }, [district]);
+
+  const handleUseGpsLocation = () => {
+    if (!navigator.geolocation) {
+      alert('Geolocation is not supported by your browser.');
+      return;
+    }
+    setLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setIsGpsActive(true);
+        fetchWeather(null, {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+          name: 'My Farm Location (मेरा स्थान)'
+        });
+      },
+      (error) => {
+        console.warn('GPS location error:', error);
+        setIsGpsActive(false);
+        fetchWeather(district);
+      },
+      { timeout: 8000 }
+    );
+  };
 
   const handleReadAdvisory = () => {
     if (!weatherData || !weatherData.diseaseAlerts?.length) return;
@@ -36,7 +71,7 @@ export default function WeatherAlerts() {
     }
 
     const firstAlert = weatherData.diseaseAlerts[0];
-    const text = firstAlert.advisory[language] || firstAlert.advisory.en;
+    const text = firstAlert.advisory[language] || firstAlert.advisory.hi || firstAlert.advisory.en;
     setIsSpeaking(true);
     speechService.speakText(text, language, () => setIsSpeaking(false));
   };
@@ -48,9 +83,15 @@ export default function WeatherAlerts() {
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-gray-100 gap-4">
           <div>
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 mb-2">
-              Layer 2: Prevention, Not Just Detection
-            </span>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">
+                Layer 2: Disease Prevention
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">
+                <Radio className="w-3 h-3 text-emerald-600 animate-pulse" />
+                100% Live Real-Time Feed
+              </span>
+            </div>
             <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
               <CloudSun className="w-6 h-6 text-harvest-500" />
               {t('weatherAlertTitle')}
@@ -60,21 +101,43 @@ export default function WeatherAlerts() {
             </p>
           </div>
 
-          {/* District Dropdown */}
-          <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4 text-agri-700" />
-            <span className="text-xs font-bold text-gray-700">{t('selectDistrict')}</span>
+          {/* District Dropdown & GPS Button */}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              onClick={handleUseGpsLocation}
+              title="Use GPS Location"
+              className={`flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-sm ${
+                isGpsActive
+                  ? 'bg-agri-700 text-white shadow-agri-700/20'
+                  : 'bg-agri-50 text-agri-800 hover:bg-agri-100 border border-agri-200'
+              }`}
+            >
+              <Navigation className="w-3.5 h-3.5" />
+              <span>{isGpsActive ? '✓ GPS Active' : '📍 मेरा वर्तमान स्थान (GPS)'}</span>
+            </button>
+
             <select
-              value={district}
-              onChange={(e) => setDistrict(e.target.value)}
+              value={isGpsActive ? 'custom' : district}
+              onChange={(e) => {
+                setIsGpsActive(false);
+                setDistrict(e.target.value);
+              }}
               className="text-xs sm:text-sm font-semibold border border-gray-300 rounded-xl py-2 px-3 bg-gray-50 text-gray-800 focus:ring-agri-500 shadow-sm"
             >
-              <option value="nashik">Nashik (नाशिक - Grape/Tomato)</option>
-              <option value="pune">Pune (पुणे - Veg/Soybean)</option>
-              <option value="amravati">Amravati (अमरावती - Cotton/Soybean)</option>
-              <option value="jalgaon">Jalgaon (जळगाव - Banana/Cotton)</option>
-              <option value="kolhapur">Kolhapur (कोल्हापूर - Sugarcane)</option>
-              <option value="nagpur">Nagpur (नागपूर - Orange/Cotton)</option>
+              <option value="nashik">Nashik (नाशिक)</option>
+              <option value="pune">Pune (पुणे)</option>
+              <option value="nagpur">Nagpur (नागपुर)</option>
+              <option value="jalgaon">Jalgaon (जलगांव)</option>
+              <option value="amravati">Amravati (अमरावती)</option>
+              <option value="kolhapur">Kolhapur (कोल्हापुर)</option>
+              <option value="aurangabad">Chhatrapati Sambhajinagar (संभाजीनगर)</option>
+              <option value="solapur">Solapur (सोलापुर)</option>
+              <option value="indore">Indore (इंदौर)</option>
+              <option value="bhopal">Bhopal (भोपाल)</option>
+              <option value="jaipur">Jaipur (जयपुर)</option>
+              <option value="lucknow">Lucknow (लखनऊ)</option>
+              <option value="patna">Patna (पटना)</option>
+              <option value="delhi">Delhi (दिल्ली NCR)</option>
             </select>
           </div>
         </div>

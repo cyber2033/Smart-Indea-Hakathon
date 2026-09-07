@@ -4,9 +4,17 @@ Optimized for EfficientNet-B0 (224x224 RGB inputs)
 SIH 2026 - Section 2 Model Training Hyperparameters
 """
 import os
+import sys
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 # SECTION 2 EXACT PARAMETERS
 IMG_SIZE = (224, 224)

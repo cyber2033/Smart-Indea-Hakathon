@@ -4,9 +4,9 @@ import { translations } from '../data/translations';
 const LanguageContext = createContext();
 
 export function LanguageProvider({ children }) {
-  // Default to Marathi ('mr') as per Maharashtra Govt problem statement, or saved setting
+  // Default to Hindi ('hi') as primary language, with Marathi and English optional
   const [language, setLanguage] = useState(() => {
-    return localStorage.getItem('sih_krishi_lang') || 'mr';
+    return localStorage.getItem('sih_krishi_lang') || 'hi';
   });
 
   useEffect(() => {
