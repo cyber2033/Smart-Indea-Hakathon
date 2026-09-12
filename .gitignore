@@ -28,6 +28,7 @@ build/
 
 # Large Model Checkpoints & Uploads
 *.h5
+*.tflite
 backend/uploads/*
 !backend/uploads/.gitkeep
 

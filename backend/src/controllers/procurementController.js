@@ -330,3 +330,19 @@ exports.bookSlot = (req, res) => {
     data: newBooking
   });
 };
+
+exports.getTokens = (req, res) => {
+  return res.status(200).json({
+    success: true,
+    data: inMemoryDB.procurementTokens
+  });
+};
+
+exports.getTokenById = (req, res) => {
+  const { tokenId } = req.params;
+  const token = inMemoryDB.procurementTokens.find(t => t.id === tokenId || t.tokenNumber === tokenId);
+  if (!token) {
+    return res.status(404).json({ success: false, message: "Token not found" });
+  }
+  return res.status(200).json({ success: true, data: token });
+};

@@ -3,8 +3,16 @@ TensorFlow Lite Exporter & Quantizer
 Converts trained Keras (.h5) models to lightweight .tflite for offline browser/mobile execution.
 """
 import os
+import sys
 import argparse
 import tensorflow as tf
+
+if sys.platform == "win32":
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 def convert_to_tflite(keras_model_path, output_tflite_path="models/model.tflite", quantize=True):
     print(f"[*] Loading Keras model from: {keras_model_path}")
